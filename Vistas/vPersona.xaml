@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="pmejiaST5.Vistas.vPersona"
+             Title="vPersona">
+    <ScrollView>
+    <VerticalStackLayout
+        Spacing="20"
+        Padding="29">
+        <Label 
+            Text="BASE DE DATOS SQLITE"
+            FontSize="24"
+            HorizontalTextAlignment="Center"/>
+
+        <Entry x:Name="txtName"
+               Placeholder="Ingrese su Nombre"/>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <Button x:Name="btnInsertar" Text="Ingresar" Clicked="btnInsertar_Clicked" Grid.Row="0" Grid.Column="0" Margin="10" Background="Aqua" TextColor="Black"/>
+                <Button x:Name="btnObtener" Text="Listar Personas" Clicked="btnObtener_Clicked" Grid.Row="2" Grid.Column="0" Margin="10" Background="Aqua" TextColor="Black"/>
+                <Button x:Name="btnEliminar" Text="Eliminar" Clicked="btnEliminar_Clicked" Grid.Row="4" Grid.Column="0" Margin="10" Background="Aqua" TextColor="Black"/>
+                <Button x:Name="btnActualizar" Text="Actualizar" Clicked="btnActualizar_Clicked" Grid.Row="5" Grid.Column="0" Margin="10" Background="OrangeRed" TextColor="Black"/>
+                <Label x:Name="lblStatus" Grid.Row="1" Grid.Column="0" TextColor="Green"/>
+                
+              
+                <CollectionView x:Name="ListaPersona"  SelectionMode="Single" Grid.Row="3" Grid.Column="0" >
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="2*"/>
+                                </Grid.ColumnDefinitions>
+                                <Label Text="{Binding Id}" Grid.Column="0"/>
+                                <Label Text="{Binding Name}" Grid.Column="1"/>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+            </Grid>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
